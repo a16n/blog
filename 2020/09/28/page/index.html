@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="badusb之Arduino语法, M4XLMUM の BLOG">
+    <meta name="keywords" content="page, M4XLMUM の BLOG">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>badusb之Arduino语法 | M4XLMUM の BLOG</title>
+    <title>page | M4XLMUM の BLOG</title>
     <link rel="icon" type="image/png" href="/blog/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/blog/libs/awesome/css/all.css">
@@ -308,12 +308,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">badusb之Arduino语法</h1>
+                    <h1 class="description center-align post-title">page</h1>
                 </div>
             </div>
         </div>
@@ -428,13 +428,9 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/blog/tags/badusb/">
-                                <span class="chip bg-color">badusb</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -460,14 +456,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    493
+                    0
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -482,99 +478,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="BadUsb简单用法示例"><a href="#BadUsb简单用法示例" class="headerlink" title="BadUsb简单用法示例"></a>BadUsb简单用法示例</h1><h2 id="所需硬件"><a href="#所需硬件" class="headerlink" title="所需硬件"></a>所需硬件</h2><p>badusb 自行淘宝  驱动程序会自动安装，若未自动安装自行百度</p>
-<h2 id="所需工具"><a href="#所需工具" class="headerlink" title="所需工具"></a>所需工具</h2><p>arduino-1.5.5-r2用于编辑代码并上传至badusb<br>badusb连接至电脑</p>
-<pre><code>打开arduino-1.5.5-r2-&gt;打开工具菜单-&gt;板-&gt;Arduino Leonardo
-                                   打开工具菜单-&gt;端口-&gt;选择相应的com口   //这一步极为重要</code></pre>
-<p>左上角第二个向右的箭头图标为上传按钮，编辑好代码后上传至优盘即可。</p>
-<h2 id="语法示例"><a href="#语法示例" class="headerlink" title="语法示例:"></a>语法示例:</h2><pre><code>void setup() &#123;
-  // put your setup code here, to run once:
-Keyboard.begin();//开始键盘通讯
-delay(3000);//延时
-Keyboard.press(KEY_LEFT_GUI);//win键
-delay(50);
-Keyboard.press(&#39;r&#39;);//r键
-delay(50);
-Keyboard.release(KEY_LEFT_GUI);
-Keyboard.release(&#39;r&#39;);
-delay(1000);
-Keyboard.println(&quot;cmd &quot;); //注意这里命令的最后多了一个空格 如果目标终端的输入法是中文的话这个空格非常关键
-delay(500);
-Keyboard.println(&quot;ping  211.140.13.188 -t &quot;); ; //注意最后有一个空格
-delay(1000);//延时
-Keyboard.press(KEY_LEFT_GUI);//win键
-delay(50);
-Keyboard.press(&#39;r&#39;);//r键
-delay(50);
-Keyboard.release(KEY_LEFT_GUI);
-Keyboard.release(&#39;r&#39;);
-delay(1000);
-Keyboard.println(&quot;cmd &quot;); //注意最后有一个空格
-delay(500);
-Keyboard.println(&quot;start http://weibo.com/enderzhou &quot;); //注意最后有一个空格
-&#125;
-
-void loop() &#123;
-  // put your main code here, to run repeatedly:
-
-&#125;
-
-
-具体按键设置
-delay(5000);//延时毫秒
-
-Keyboard.begin();     //开始键盘通讯
-Keyboard.end();     //结束键盘通讯
-Keyboard.press();     //按下键盘按键     如果是非特殊按键如 数字、字母按键用单引号括起来
-Keyboard.release();     //释放键盘按键
-Keyboard.println(&quot;&quot;);     //输入字符串使用双引号括起来
-
-
-Mouse.begin();//鼠标事件开始
-Mouse.click();//鼠标单击
-Mouse.end();//鼠标事件结束
-Mouse.move();//鼠标移动(x,y)
-Mouse.press();//鼠标按下
-Mouse.release();//鼠标松开
-Mouse.isPressed();// 
-
-
-KEY_LEFT_CTRL
-KEY_LEFT_SHIFT
-KEY_LEFT_ALT
-KEY_LEFT_GUI    //win键
-KEY_RIGHT_CTRL
-KEY_RIGHT_SHIFT
-KEY_RIGHT_ALT
-KEY_RIGHT_GUI
-KEY_UP_ARROW
-KEY_DOWN_ARROW
-KEY_LEFT_ARROW
-KEY_RIGHT_ARROW
-KEY_BACKSPACE
-KEY_TAB
-KEY_RETURN//回车键
-KEY_ESC
-KEY_INSERT
-KEY_DELETE
-KEY_PAGE_UP
-KEY_PAGE_DOWN
-KEY_HOME
-KEY_END
-KEY_CAPS_LOCK
-KEY_F1
-KEY_F2
-KEY_F3
-KEY_F4
-KEY_F5
-KEY_F6
-KEY_F7
-KEY_F8
-KEY_F9
-KEY_F10
-KEY_F11
-KEY_F12</code></pre>
-
+                
             </div>
             <hr/>
 
@@ -599,7 +503,7 @@ KEY_F12</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://a16n.github.io/blog/blog/2020/09/28/badusb-zhi-arduino-yu-fa/">https://a16n.github.io/blog/blog/2020/09/28/badusb-zhi-arduino-yu-fa/</a>
+                    <a href="https://a16n.github.io/blog/blog/2020/09/28/page/">https://a16n.github.io/blog/blog/2020/09/28/page/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -636,11 +540,7 @@ KEY_F12</code></pre>
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/blog/tags/badusb/">
-                                    <span class="chip bg-color">badusb</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -1069,9 +969,10 @@ KEY_F12</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/blog/2020/09/28/page/">
                     <div class="card-image">
@@ -1089,9 +990,9 @@ KEY_F12</code></pre>
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-09-28
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-28
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -1100,6 +1001,7 @@ KEY_F12</code></pre>
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -1110,13 +1012,13 @@ KEY_F12</code></pre>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/blog/2020/09/28/shen-mi-long-juan-feng/">
+                <a href="/blog/2020/09/28/badusb-zhi-arduino-yu-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/blog/medias/featureimages/2.jpg" class="responsive-img" alt="神秘龙卷风">
+                        <img src="/blog/medias/featureimages/20.jpg" class="responsive-img" alt="badusb之Arduino语法">
                         
-                        <span class="card-title">神秘龙卷风</span>
+                        <span class="card-title">badusb之Arduino语法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1131,12 +1033,8 @@ KEY_F12</code></pre>
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/blog/categories/ctf/" class="post-category">
-                                    ctf
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            M4XLMUM
                             
                         </span>
                     </div>
@@ -1144,12 +1042,8 @@ KEY_F12</code></pre>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/blog/tags/ctf/">
-                        <span class="chip bg-color">ctf</span>
-                    </a>
-                    
-                    <a href="/blog/tags/misc/">
-                        <span class="chip bg-color">misc</span>
+                    <a href="/blog/tags/badusb/">
+                        <span class="chip bg-color">badusb</span>
                     </a>
                     
                 </div>
