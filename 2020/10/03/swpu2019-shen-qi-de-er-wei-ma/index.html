@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="[CSAWQual 2019]Web_Unagi, M4XLMUM の BLOG">
+    <meta name="keywords" content="SWPU2019神奇的二维码, M4XLMUM の BLOG">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>[CSAWQual 2019]Web_Unagi | M4XLMUM の BLOG</title>
+    <title>SWPU2019神奇的二维码 | M4XLMUM の BLOG</title>
     <link rel="icon" type="image/png" href="/blog/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/blog/libs/awesome/css/all.css">
@@ -308,12 +308,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">[CSAWQual 2019]Web_Unagi</h1>
+                    <h1 class="description center-align post-title">SWPU2019神奇的二维码</h1>
                 </div>
             </div>
         </div>
@@ -434,8 +434,12 @@
                                 <span class="chip bg-color">ctf</span>
                             </a>
                         
-                            <a href="/blog/tags/xxe%E4%B9%8Bwaf%E7%BB%95%E8%BF%87/">
-                                <span class="chip bg-color">xxe之waf绕过</span>
+                            <a href="/blog/tags/%E9%9A%90%E5%86%99/">
+                                <span class="chip bg-color">隐写</span>
+                            </a>
+                        
+                            <a href="/blog/tags/%E9%9F%B3%E9%A2%91%E9%9A%90%E5%86%99/">
+                                <span class="chip bg-color">音频隐写</span>
                             </a>
                         
                     </div>
@@ -450,6 +454,10 @@
                                 ctf
                             </a>
                         
+                            <a href="/blog/categories/ctf/misc/" class="post-category">
+                                misc
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -459,7 +467,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-09-30
+                    2020-10-03
                 </div>
                 
 
@@ -473,7 +481,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    332
+                    355
                 </div>
                 
 
@@ -495,37 +503,33 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="判断xxe"><a href="#判断xxe" class="headerlink" title="判断xxe"></a>判断xxe</h2><p>首先看下各个界面有什么信息，看到upload界面有一个upload的功能，可以上传新的用户。然后看到here的那个链接里面的内容是xml格式的，所以我们很容易就能联想得到使用xxe、xml外部实体注入。上传一个xml文件就好了</p>
-<h2 id="上传xxe文件"><a href="#上传xxe文件" class="headerlink" title="上传xxe文件"></a>上传xxe文件</h2><pre class=" language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version='1.0'?></span>
-<span class="token doctype">&lt;!DOCTYPE users [
-&lt;!ENTITY xxe SYSTEM "file:///flag" ></span>]>
+                <h2 id="0x01-先用binwalk查看图片"><a href="#0x01-先用binwalk查看图片" class="headerlink" title="0x01 先用binwalk查看图片"></a>0x01 先用binwalk查看图片</h2><p>图片隐写的一般套路就是这样，先直接用binwalk+文件名查看里面的各个文件的信息，然后加个<code>-e</code>参数可以提取里面的各个文件到一个文件夹了。</p>
+<h2 id="0x02-拉到windows里面"><a href="#0x02-拉到windows里面" class="headerlink" title="0x02　拉到windows里面"></a>0x02　拉到windows里面</h2><p>用windows把里面能直接解压的解压，然后有个不能解压的，看样子是个音频，第一个文件夹是个图片和一个rar，第二个文件是encode的文件，解密后就是第一个文件夹里的rar压缩包的密码，拉出来后还是个图片，没搞出来。</p>
+<h2 id="0x03-音频隐写"><a href="#0x03-音频隐写" class="headerlink" title="0x03 音频隐写"></a>0x03 音频隐写</h2><p>第三个文件夹里面是个doc文件，打开后是好长一段的base64加密。作为python的忠实用户，肯定要写一段<code>python3</code>脚本来解决这个问题啊！</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> base64
 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>users</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>user</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>username</span><span class="token punctuation">></span></span>lice<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>username</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>password</span><span class="token punctuation">></span></span>passwd1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>password</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>Alice<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>email</span><span class="token punctuation">></span></span>alice@fakesite.com<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>email</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>group</span><span class="token punctuation">></span></span><span class="token entity" title="&xxe;">&amp;xxe;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>group</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>user</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>users</span><span class="token punctuation">></span></span></code></pre>
-<p>做成一个xml文件就行了，上传一下，有WAF，不知道过滤了啥。wp上说要换一下编码方式，用命令:</p>
-<pre><code>iconv -f utf-8 -t utf-16 1.xml&gt;2.xml</code></pre>
-<h2 id="得flag"><a href="#得flag" class="headerlink" title="得flag"></a>得flag</h2><p><del>上面的内容转utf16后还是不行，只能用他给出的</del></p>
-<pre class=" language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version='1.0'?></span>
-<span class="token doctype">&lt;!DOCTYPE users [
-&lt;!ENTITY xxe SYSTEM "file:///flag" ></span>]>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>users</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>user</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>username</span><span class="token punctuation">></span></span>bob<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>username</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>password</span><span class="token punctuation">></span></span>passwd2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>password</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span> Bob<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>email</span><span class="token punctuation">></span></span>bob@fakesite.com<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>email</span><span class="token punctuation">></span></span>  
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>group</span><span class="token punctuation">></span></span>CSAW2019<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>group</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>intro</span><span class="token punctuation">></span></span><span class="token entity" title="&xxe;">&amp;xxe;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>intro</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>user</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>users</span><span class="token punctuation">></span></span></code></pre>
-<p>我的锅，要用linux的vim（windows上好像也有，但是下面的命令还得在linux上面执行，索性就用linux的vim）编写代码然后再使用上面的编码命令才不会报错，然后就能直接上传得flag了。</p>
+a <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">"请输入需要解密的base64："</span><span class="token punctuation">)</span>
+
+<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        a <span class="token operator">=</span> base64<span class="token punctuation">.</span>b64decode<span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+    <span class="token keyword">except</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"多重解密结束!"</span><span class="token punctuation">)</span>
+        <span class="token keyword">break</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span></code></pre>
+<p>如IDE有划线，请自动忽略。。。<br>解密后为<code>comEON_YOuAreSOSoS0great</code>，用此密码将音频文件拉出来。</p>
+<h2 id="0x04-使用AU分析"><a href="#0x04-使用AU分析" class="headerlink" title="0x04 使用AU分析"></a>0x04 使用AU分析</h2><pre><code>--/---/.-./..././../.../...-/./.-./-.--/...-/./.-./-.--/./.-/.../-.--/</code></pre>
+<p>解码后为<code>MORSEISVERYVERYEASY</code><br>所以flag为</p>
+<pre class=" language-flag"><code class="language-flag">flag&#123;MORSEISVERYVERYEASY&#125;</code></pre>
+<pre class=" language-flag"><code class="language-flag">flag&#123;morseisveryveryeasy&#125;</code></pre>
+<p>转为小写的python3代码为（没错，这么简单也要写成代码）</p>
+<pre class=" language-python"><code class="language-python">a <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">"请输入："</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>lower<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<blockquote>
+<p>总结: 不知道这种音频隐写能不能用python来搞，明天或者有空的时候再搞吧！</p>
+</blockquote>
 
             </div>
             <hr/>
@@ -551,7 +555,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://a16n.github.io/blog/blog/2020/09/30/2019-web-unagi/">https://a16n.github.io/blog/blog/2020/09/30/2019-web-unagi/</a>
+                    <a href="https://a16n.github.io/blog/blog/2020/10/03/swpu2019-shen-qi-de-er-wei-ma/">https://a16n.github.io/blog/blog/2020/10/03/swpu2019-shen-qi-de-er-wei-ma/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -593,8 +597,12 @@
                                     <span class="chip bg-color">ctf</span>
                                 </a>
                             
-                                <a href="/blog/tags/xxe%E4%B9%8Bwaf%E7%BB%95%E8%BF%87/">
-                                    <span class="chip bg-color">xxe之waf绕过</span>
+                                <a href="/blog/tags/%E9%9A%90%E5%86%99/">
+                                    <span class="chip bg-color">隐写</span>
+                                </a>
+                            
+                                <a href="/blog/tags/%E9%9F%B3%E9%A2%91%E9%9A%90%E5%86%99/">
+                                    <span class="chip bg-color">音频隐写</span>
                                 </a>
                             
                         </div>
@@ -1029,6 +1037,59 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
+                <a href="/blog/2020/10/04/web1-dropbox/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/blog/medias/featureimages/12.jpg" class="responsive-img" alt="[CISCN2019 华北赛区 Day1 Web1]Dropbox">
+                        
+                        <span class="card-title">[CISCN2019 华北赛区 Day1 Web1]Dropbox</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-04
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/blog/categories/ctf/" class="post-category">
+                                    ctf
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/blog/tags/ctf/">
+                        <span class="chip bg-color">ctf</span>
+                    </a>
+                    
+                    <a href="/blog/tags/phar/">
+                        <span class="chip bg-color">phar</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
                 <a href="/blog/2020/10/03/bei-tou-zou-de-wen-jian/">
                     <div class="card-image">
                         
@@ -1045,9 +1106,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-03
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-03
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1073,51 +1134,6 @@
                     
                     <a href="/blog/tags/%E6%96%87%E4%BB%B6%E9%9A%90%E5%86%99/">
                         <span class="chip bg-color">文件隐写</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/blog/2020/09/29/badusb-zhi-arduino-yu-fa/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/blog/medias/featureimages/20.jpg" class="responsive-img" alt="badusb之Arduino语法">
-                        
-                        <span class="card-title">badusb之Arduino语法</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-29
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            M4XLMUM
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/blog/tags/badusb/">
-                        <span class="chip bg-color">badusb</span>
                     </a>
                     
                 </div>

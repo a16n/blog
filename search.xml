@@ -31,6 +31,37 @@
     
     
     <entry>
+      <title>SWPU2019神奇的二维码</title>
+      <link href="/blog/2020/10/03/swpu2019-shen-qi-de-er-wei-ma/"/>
+      <url>/blog/2020/10/03/swpu2019-shen-qi-de-er-wei-ma/</url>
+      
+        <content type="html"><![CDATA[<h2 id="0x01-先用binwalk查看图片"><a href="#0x01-先用binwalk查看图片" class="headerlink" title="0x01 先用binwalk查看图片"></a>0x01 先用binwalk查看图片</h2><p>图片隐写的一般套路就是这样，先直接用binwalk+文件名查看里面的各个文件的信息，然后加个<code>-e</code>参数可以提取里面的各个文件到一个文件夹了。</p><h2 id="0x02-拉到windows里面"><a href="#0x02-拉到windows里面" class="headerlink" title="0x02　拉到windows里面"></a>0x02　拉到windows里面</h2><p>用windows把里面能直接解压的解压，然后有个不能解压的，看样子是个音频，第一个文件夹是个图片和一个rar，第二个文件是encode的文件，解密后就是第一个文件夹里的rar压缩包的密码，拉出来后还是个图片，没搞出来。</p><h2 id="0x03-音频隐写"><a href="#0x03-音频隐写" class="headerlink" title="0x03 音频隐写"></a>0x03 音频隐写</h2><p>第三个文件夹里面是个doc文件，打开后是好长一段的base64加密。作为python的忠实用户，肯定要写一段<code>python3</code>脚本来解决这个问题啊！</p><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> base64a <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">"请输入需要解密的base64："</span><span class="token punctuation">)</span><span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">:</span>    <span class="token keyword">try</span><span class="token punctuation">:</span>        a <span class="token operator">=</span> base64<span class="token punctuation">.</span>b64decode<span class="token punctuation">(</span>a<span class="token punctuation">)</span>    <span class="token keyword">except</span><span class="token punctuation">:</span>        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"多重解密结束!"</span><span class="token punctuation">)</span>        <span class="token keyword">break</span>    <span class="token keyword">else</span><span class="token punctuation">:</span>        <span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span></code></pre><p>如IDE有划线，请自动忽略。。。<br>解密后为<code>comEON_YOuAreSOSoS0great</code>，用此密码将音频文件拉出来。</p><h2 id="0x04-使用AU分析"><a href="#0x04-使用AU分析" class="headerlink" title="0x04 使用AU分析"></a>0x04 使用AU分析</h2><pre><code>--/---/.-./..././../.../...-/./.-./-.--/...-/./.-./-.--/./.-/.../-.--/</code></pre><p>解码后为<code>MORSEISVERYVERYEASY</code><br>所以flag为</p><pre class=" language-flag"><code class="language-flag">flag&#123;MORSEISVERYVERYEASY&#125;</code></pre><pre class=" language-flag"><code class="language-flag">flag&#123;morseisveryveryeasy&#125;</code></pre><p>转为小写的python3代码为（没错，这么简单也要写成代码）</p><pre class=" language-python"><code class="language-python">a <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">"请输入："</span><span class="token punctuation">)</span><span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>lower<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre><blockquote><p>总结: 不知道这种音频隐写能不能用python来搞，明天或者有空的时候再搞吧！</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> ctf </category>
+          
+          <category> misc </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ctf </tag>
+            
+            <tag> 隐写 </tag>
+            
+            <tag> 音频隐写 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>被偷走的文件</title>
       <link href="/blog/2020/10/03/bei-tou-zou-de-wen-jian/"/>
       <url>/blog/2020/10/03/bei-tou-zou-de-wen-jian/</url>
