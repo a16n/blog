@@ -362,21 +362,21 @@
                     <div class="post-statis col l4 hide-on-med-and-down" data-aos="zoom-in-right">
                         
 <div class="statis">
-    <span class="count"><a href="/blog/">3</a></span>
+    <span class="count"><a href="/blog/">5</a></span>
     <span class="name">文章</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/blog/categories">1</a></span>
+    <span class="count"><a href="/blog/categories">2</a></span>
     <span class="name">分类</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/blog/tags">4</a></span>
+    <span class="count"><a href="/blog/tags">6</a></span>
     <span class="name">标签</span>
 </div>
 
@@ -392,21 +392,21 @@
                                 <div class="post-statis hide-on-large-only" data-aos="zoom-in-right">
                                     
 <div class="statis">
-    <span class="count"><a href="/blog/">3</a></span>
+    <span class="count"><a href="/blog/">5</a></span>
     <span class="name">文章</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/blog/categories">1</a></span>
+    <span class="count"><a href="/blog/categories">2</a></span>
     <span class="name">分类</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/blog/tags">4</a></span>
+    <span class="count"><a href="/blog/tags">6</a></span>
     <span class="name">标签</span>
 </div>
 
@@ -540,7 +540,7 @@
         },
         xAxis: {
             type: 'category',
-            data: ["2019-09","2019-10","2019-11","2019-12","2020-01","2020-02","2020-03","2020-04","2020-05","2020-06","2020-07","2020-08","2020-09"]
+            data: ["2019-10","2019-11","2019-12","2020-01","2020-02","2020-03","2020-04","2020-05","2020-06","2020-07","2020-08","2020-09","2020-10"]
         },
         yAxis: {
             type: 'value',
@@ -550,7 +550,7 @@
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [0,0,0,0,0,0,0,0,0,0,0,0,3],
+                data: [0,0,0,0,0,0,0,0,0,0,0,3,2],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -592,7 +592,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"ctf","value":2}],
+                data: [{"name":"ctf","value":3},{"name":"misc文件隐写","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -616,7 +616,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["ctf","badusb","xxe之waf绕过","misc"]
+                data: ["ctf","misc","xxe之waf绕过","phar","badusb","文件隐写"]
             }
         ],
         yAxis: [
@@ -629,7 +629,7 @@
                 type: 'bar',
                 color: ['#82d3f4'],
                 barWidth : 18,
-                data: [2,1,1,1],
+                data: [4,2,1,1,1,1],
                 markPoint: {
                     symbolSize: 45,
                     data: [{
@@ -799,12 +799,6 @@
         <div class="tag-chips center-align">
             
             
-            <a href="/blog/tags/badusb/">
-                <span class="chip center-align waves-effect waves-light chip-default">badusb</span>
-            </a>
-            
-            
-            
             <a href="/blog/tags/ctf/">
                 <span class="chip center-align waves-effect waves-light chip-default">ctf</span>
             </a>
@@ -817,8 +811,26 @@
             
             
             
+            <a href="/blog/tags/phar/">
+                <span class="chip center-align waves-effect waves-light chip-default">phar</span>
+            </a>
+            
+            
+            
+            <a href="/blog/tags/badusb/">
+                <span class="chip center-align waves-effect waves-light chip-default">badusb</span>
+            </a>
+            
+            
+            
             <a href="/blog/tags/misc/">
                 <span class="chip center-align waves-effect waves-light chip-default">misc</span>
+            </a>
+            
+            
+            
+            <a href="/blog/tags/%E6%96%87%E4%BB%B6%E9%9A%90%E5%86%99/">
+                <span class="chip center-align waves-effect waves-light chip-default">文件隐写</span>
             </a>
             
             
@@ -946,7 +958,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">843</span>&nbsp;字
+                class="white-color">1k</span>&nbsp;字
             
             
             

