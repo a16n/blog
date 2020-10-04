@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>BJDCTF2nd-EasyBaBa</title>
+      <link href="/blog/2020/10/04/bjdctf2nd-easybaba/"/>
+      <url>/blog/2020/10/04/bjdctf2nd-easybaba/</url>
+      
+        <content type="html"><![CDATA[<h2 id="0x01-先用binwalk查看文件"><a href="#0x01-先用binwalk查看文件" class="headerlink" title="0x01 先用binwalk查看文件"></a>0x01 先用binwalk查看文件</h2><blockquote><p>binwalk ezbb.jpg</p></blockquote><p>发现里面有隐藏的文件，这个只有一个图片文件的，要不就是文件隐藏，要不就是什么色道那种（这种不太会）。</p><h2 id="0x02-用foremost分开文件"><a href="#0x02-用foremost分开文件" class="headerlink" title="0x02 用foremost分开文件"></a>0x02 用foremost分开文件</h2><blockquote><p>foremost ezbb.jpg<br>什么都不用指定就能分解出，分出的文件在output目录里面，有个压缩包，解压后是个jpg的文件，拉到windows里面，用记事本打开，发现开头有RIFF文件头（AVI格式文件），将后缀名改为.avi后打开，果然里面藏了个视频（图片里藏视频，文件隐写真奇妙。）</p></blockquote><h2 id="0x03-pr打开扫码"><a href="#0x03-pr打开扫码" class="headerlink" title="0x03 pr打开扫码"></a>0x03 pr打开扫码</h2><p>里面很明显可以看到几帧不正常的图片，打开pr扫码吧，分为几部分，下面一行就是一张图片获得的结果</p><pre><code>6167696E5F6C6F76655F59424A447B696D</code></pre><p>最后一张图片太模糊了，想用大佬的<a href="https://merricx.github.io/qrazybox/">这个项目</a>，但是又太麻烦，直接写了。忙活3个小时了。。。</p><pre><code>316E677D</code></pre><p>和一起</p><pre><code>6167696E5F6C6F76655F59424A447B696D316E677D</code></pre><p>解出来后顺序有错，调一下位置就好了。</p><pre class=" language-flag"><code class="language-flag">BJD&#123;imagin_love_Y1ng&#125;</code></pre><p>注意把BJD换为flag</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> misc </category>
+          
+          <category> ctf </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ctf </tag>
+            
+            <tag> misc文件隐写 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>[CISCN2019 华北赛区 Day1 Web1]Dropbox</title>
       <link href="/blog/2020/10/04/web1-dropbox/"/>
       <url>/blog/2020/10/04/web1-dropbox/</url>
