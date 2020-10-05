@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title>BJDCTF2020-藏藏藏</title>
+      <link href="/blog/2020/10/05/bjdctf2020-cang-cang-cang/"/>
+      <url>/blog/2020/10/05/bjdctf2020-cang-cang-cang/</url>
+      
+        <content type="html"><![CDATA[<h2 id="binwalk"><a href="#binwalk" class="headerlink" title="binwalk"></a>binwalk</h2><p>先给拉到kal里面，并改名为<code>1.jpg</code>，用命令<code>binwalk 1.jpg</code>看到下面有个压缩包。</p><h2 id="foremost"><a href="#foremost" class="headerlink" title="foremost"></a>foremost</h2><p>用命令<code>foremost 1.jpg</code>直接分离出zip文件，foremost牛x。</p><h2 id="flag"><a href="#flag" class="headerlink" title="flag"></a>flag</h2><p>压缩包里面有word文档，拉到windows里面打开后是一张二维码，扫描后是flag</p><pre class=" language-flag"><code class="language-flag">flag&#123;you are the best!&#125;</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> ctf </category>
+          
+          <category> misc </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ctf </tag>
+            
+            <tag> misc </tag>
+            
+            <tag> 文件隐写 </tag>
+            
+            <tag> foremost简单使用 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>BJDCTF2020-你猜我是个啥</title>
       <link href="/blog/2020/10/05/bjdctf2020-ni-cai-wo-shi-ge-sha/"/>
       <url>/blog/2020/10/05/bjdctf2020-ni-cai-wo-shi-ge-sha/</url>

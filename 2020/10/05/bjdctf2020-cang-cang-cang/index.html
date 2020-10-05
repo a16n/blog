@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="BJDCTF2020-你猜我是个啥, M4XLMUM の BLOG">
+    <meta name="keywords" content="BJDCTF2020-藏藏藏, M4XLMUM の BLOG">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>BJDCTF2020-你猜我是个啥 | M4XLMUM の BLOG</title>
+    <title>BJDCTF2020-藏藏藏 | M4XLMUM の BLOG</title>
     <link rel="icon" type="image/png" href="/blog/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/blog/libs/awesome/css/all.css">
@@ -308,12 +308,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/blog/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">BJDCTF2020-你猜我是个啥</h1>
+                    <h1 class="description center-align post-title">BJDCTF2020-藏藏藏</h1>
                 </div>
             </div>
         </div>
@@ -442,6 +442,10 @@
                                 <span class="chip bg-color">文件隐写</span>
                             </a>
                         
+                            <a href="/blog/tags/foremost%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">
+                                <span class="chip bg-color">foremost简单使用</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -481,7 +485,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    24
+                    78
                 </div>
                 
 
@@ -503,8 +507,10 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="改后缀名"><a href="#改后缀名" class="headerlink" title="改后缀名"></a>改后缀名</h2><p>将后缀名改为.txt后用记事本打开得flag</p>
-<h2 id="flag"><a href="#flag" class="headerlink" title="flag"></a>flag</h2><pre class=" language-flag"><code class="language-flag">flag&#123;i_am_fl@g&#125;</code></pre>
+                <h2 id="binwalk"><a href="#binwalk" class="headerlink" title="binwalk"></a>binwalk</h2><p>先给拉到kal里面，并改名为<code>1.jpg</code>，用命令<code>binwalk 1.jpg</code>看到下面有个压缩包。</p>
+<h2 id="foremost"><a href="#foremost" class="headerlink" title="foremost"></a>foremost</h2><p>用命令<code>foremost 1.jpg</code>直接分离出zip文件，foremost牛x。</p>
+<h2 id="flag"><a href="#flag" class="headerlink" title="flag"></a>flag</h2><p>压缩包里面有word文档，拉到windows里面打开后是一张二维码，扫描后是flag</p>
+<pre class=" language-flag"><code class="language-flag">flag&#123;you are the best!&#125;</code></pre>
 
             </div>
             <hr/>
@@ -530,7 +536,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://a16n.github.io/blog/blog/2020/10/05/bjdctf2020-ni-cai-wo-shi-ge-sha/">https://a16n.github.io/blog/blog/2020/10/05/bjdctf2020-ni-cai-wo-shi-ge-sha/</a>
+                    <a href="https://a16n.github.io/blog/blog/2020/10/05/bjdctf2020-cang-cang-cang/">https://a16n.github.io/blog/blog/2020/10/05/bjdctf2020-cang-cang-cang/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -578,6 +584,10 @@
                             
                                 <a href="/blog/tags/%E6%96%87%E4%BB%B6%E9%9A%90%E5%86%99/">
                                     <span class="chip bg-color">文件隐写</span>
+                                </a>
+                            
+                                <a href="/blog/tags/foremost%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">
+                                    <span class="chip bg-color">foremost简单使用</span>
                                 </a>
                             
                         </div>
@@ -1008,9 +1018,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/blog/2020/10/05/bjdctf2020-cang-cang-cang/">
                     <div class="card-image">
@@ -1028,9 +1039,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-05
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1047,6 +1058,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1077,13 +1089,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/blog/2020/10/05/bjdctf2020-yi-xie-zhang-mu/">
+                <a href="/blog/2020/10/05/bjdctf2020-ni-cai-wo-shi-ge-sha/">
                     <div class="card-image">
                         
                         
-                        <img src="/blog/medias/featureimages/22.jpg" class="responsive-img" alt="BJDCTF2020_一叶障目">
+                        <img src="/blog/medias/featureimages/19.jpg" class="responsive-img" alt="BJDCTF2020-你猜我是个啥">
                         
-                        <span class="card-title">BJDCTF2020_一叶障目</span>
+                        <span class="card-title">BJDCTF2020-你猜我是个啥</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1123,8 +1135,8 @@
                         <span class="chip bg-color">misc</span>
                     </a>
                     
-                    <a href="/blog/tags/%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99/">
-                        <span class="chip bg-color">图片隐写</span>
+                    <a href="/blog/tags/%E6%96%87%E4%BB%B6%E9%9A%90%E5%86%99/">
+                        <span class="chip bg-color">文件隐写</span>
                     </a>
                     
                 </div>
