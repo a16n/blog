@@ -4,6 +4,66 @@
   
     
     <entry>
+      <title>BJDCTF2020_一叶障目</title>
+      <link href="/blog/2020/10/05/bjdctf2020-yi-xie-zhang-mu/"/>
+      <url>/blog/2020/10/05/bjdctf2020-yi-xie-zhang-mu/</url>
+      
+        <content type="html"><![CDATA[<h2 id="图片隐写"><a href="#图片隐写" class="headerlink" title="图片隐写"></a>图片隐写</h2><p>用winhex改下宽高度值，就是第二行的第六个位置把01改为03就哦可了。</p><h2 id="flag"><a href="#flag" class="headerlink" title="flag"></a>flag</h2><pre class=" language-flag"><code class="language-flag">flag&#123;66666&#125;</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> ctf </category>
+          
+          <category> misc </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ctf </tag>
+            
+            <tag> misc </tag>
+            
+            <tag> 图片隐写 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>菜刀666</title>
+      <link href="/blog/2020/10/04/cai-dao-666/"/>
+      <url>/blog/2020/10/04/cai-dao-666/</url>
+      
+        <content type="html"><![CDATA[<h2 id="搜索点（wireshark字符串搜索）"><a href="#搜索点（wireshark字符串搜索）" class="headerlink" title="搜索点（wireshark字符串搜索）"></a>搜索点（wireshark字符串搜索）</h2><p>wireshark搜索字符串的时候也是用的ctrl + f快捷键，有所不同的是把原来的过滤器换为字符串就行了。搜到后追踪流可以发现那个压缩包与txt文件。</p><h2 id="找到关键位置"><a href="#找到关键位置" class="headerlink" title="找到关键位置"></a>找到关键位置</h2><p>往下追踪流，到tcp.stream eq 7的时候找到了关键的位置，然后可以用下面的东西解码</p><pre class=" language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span><span class="token variable">$a</span> <span class="token operator">=</span> <span class="token function">base64_decode</span><span class="token punctuation">(</span><span class="token function">urldecode</span><span class="token punctuation">(</span><span class="token string">"RDpcd2FtcDY0XHd3d1x1cGxvYWRcNjY2Ni5qcGc%3D"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token delimiter">?></span></code></pre><p>出现的第一个东西是个文件的地址为<code>D:\wamp64\www\upload\6666.jpg</code>,第二个是图片</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ctf </category>
+          
+          <category> misc </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> misc </tag>
+            
+            <tag> wireshark </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>BJDCTF2nd-EasyBaBa</title>
       <link href="/blog/2020/10/04/bjdctf2nd-easybaba/"/>
       <url>/blog/2020/10/04/bjdctf2nd-easybaba/</url>
