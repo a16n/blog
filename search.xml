@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>AFCTF2018-BASE</title>
+      <link href="/blog/2020/10/09/afctf2018-base/"/>
+      <url>/blog/2020/10/09/afctf2018-base/</url>
+      
+        <content type="html"><![CDATA[<h2 id="各种base"><a href="#各种base" class="headerlink" title="各种base"></a>各种base</h2><p>这个刚开始的时候看到题目首先就想到要使用base64试一试，没，不行。看了wp后知道了，BASE没64的目的是什么呢？不就是想让你知道这不是一个简单的base64的题目马？唉，没经验啊没经验。。。</p><blockquote><p>下面首先是我的代码</p></blockquote><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> base64a <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">"请输入需要解密的base64："</span><span class="token punctuation">)</span><span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">300000</span><span class="token punctuation">)</span><span class="token punctuation">:</span>    <span class="token keyword">try</span><span class="token punctuation">:</span>        a <span class="token operator">=</span> base64<span class="token punctuation">.</span>b64decode<span class="token punctuation">(</span>a<span class="token punctuation">)</span>    <span class="token keyword">except</span><span class="token punctuation">:</span>        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"多重解密结束!"</span><span class="token punctuation">)</span>        <span class="token keyword">break</span>    <span class="token keyword">else</span><span class="token punctuation">:</span>        <span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span></code></pre><p>下面是带解密内容，我丢这么长（好长）？<br><img src="/blog/blog/2020/10/09/afctf2018-base/QQ%E6%88%AA%E5%9B%BE20201009223047.png"></p><p>下面是用我的脚本的结果，这很明显是成功不了的。。。<br><img src="/blog/blog/2020/10/09/afctf2018-base/QQ%E6%88%AA%E5%9B%BE20201009223300.png"></p><h2 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h2><p>为什么成功不了呢？因为加密方式不只有base64加密，是base64家族的加密，得用下面的大神的脚本，其实就是循环里面多尝试了base家族的其他的解密方式。。<br>)base家族多重解密</p><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> base64file <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">"flag_encode.txt"</span><span class="token punctuation">,</span><span class="token string">'r'</span><span class="token punctuation">)</span>file2 <span class="token operator">=</span> open<span class="token punctuation">(</span><span class="token string">"flag.txt"</span><span class="token punctuation">,</span><span class="token string">'w'</span><span class="token punctuation">)</span> base <span class="token operator">=</span> file<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>    <span class="token keyword">try</span><span class="token punctuation">:</span>        base <span class="token operator">=</span> base64<span class="token punctuation">.</span>b32decode<span class="token punctuation">(</span>base<span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span>    <span class="token keyword">except</span><span class="token punctuation">:</span>        <span class="token keyword">try</span><span class="token punctuation">:</span>            base <span class="token operator">=</span> base64<span class="token punctuation">.</span>b64decode<span class="token punctuation">(</span>base<span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span>        <span class="token keyword">except</span><span class="token punctuation">:</span>            <span class="token keyword">try</span><span class="token punctuation">:</span>                base <span class="token operator">=</span> base64<span class="token punctuation">.</span>b16decode<span class="token punctuation">(</span>base<span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span>            <span class="token keyword">except</span><span class="token punctuation">:</span>                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"解码完毕qwq！"</span><span class="token punctuation">)</span>                file2<span class="token punctuation">.</span>write<span class="token punctuation">(</span>base<span class="token punctuation">)</span>                <span class="token keyword">break</span></code></pre><p><a href="https://shawroot.hatenablog.com/entry/2019/12/30/AFCTF2018/BUUCTF-BASE">看大佬的博客</a></p><h2 id="capture-the-flag"><a href="#capture-the-flag" class="headerlink" title="capture the flag"></a>capture the flag</h2><p><img src="/blog/blog/2020/10/09/afctf2018-base/QQ%E6%88%AA%E5%9B%BE20201009224151.png"></p><pre class=" language-flag"><code class="language-flag">afctf&#123;U_5h0u1d_Us3_T00l5&#125;flag&#123;U_5h0u1d_Us3_T00l5&#125;</code></pre><p>大佬们的python语言用得出神入化，我丢，好好看好好学。。。+-</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ctf </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ctf </tag>
+            
+            <tag> crypto </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>CISCN2019-华北赛区-Day1-Web1-Dropbox</title>
       <link href="/blog/2020/10/07/ciscn2019-hua-bei-sai-qu-day1-web1-dropbox/"/>
       <url>/blog/2020/10/07/ciscn2019-hua-bei-sai-qu-day1-web1-dropbox/</url>
